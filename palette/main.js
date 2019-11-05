@@ -17,6 +17,9 @@ class Canvas {
                 if (this.bucketActive) {
                     block.style.background = 'red'
                 }
+                if (this.transformActive) {
+                    block.classList.toggle('block-rounded')
+                }
                 
             })
         });
@@ -52,3 +55,4 @@ class Canvas {
 let canvas = new Canvas()
 canvas.getBlocks()
 canvas.setTool()
+console.log(canvas.transformActive);

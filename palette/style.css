@@ -52,23 +52,23 @@
     margin-right: 18px;
 }
 .current-color{
-    background: #C4C4C4;
+    background-color: #C4C4C4;
 }
 .prev-color{
-    background: #41F795;
+    background-color: #41F795;
 }
 .first-color{
-    background: #F74141;
+    background-color: #F74141;
 }
 .second-color{
-    background: #41B6F7;
+    background-color: #41B6F7;
 }
 .canvas{
     display: flex;
     flex-wrap: wrap;
     height: 50vw;
     width: 50vw;
-    background: #C4C4C4;
+    background: #f7f7f7;
     align-items: center;
     justify-content: center;
 

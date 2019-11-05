@@ -34,6 +34,13 @@ class Canvas {
                 if (this.transformActive) {
                     block.classList.toggle('block-rounded')
                 }
+                if (this.chooseColorActive) {
+                    this.prevColor = this.activeColor
+                    this.prevSpan.style.backgroundColor = this.prevColor
+
+                    this.activeColor = window.getComputedStyle(block).backgroundColor;
+                    this.activeSpan.style.backgroundColor = this.activeColor
+                }
                 
             })
         });

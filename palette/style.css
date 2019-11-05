@@ -64,8 +64,21 @@
     background: #41B6F7;
 }
 .canvas{
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vw;
+    width: 50vw;
     background: #C4C4C4;
+    align-items: center;
+    justify-content: center;
 
+}
+.block{
+    margin: 1%;
+    height: 30%;
+    width: 30%;
+    background: #000;
+    display: inline-block;
 }
 @media (max-width: 992px) {
     .menu-wrapper{

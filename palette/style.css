@@ -1,0 +1,74 @@
+.navbar{
+    -webkit-box-shadow: 0px 7px 21px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 21px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 21px 3px rgba(0,0,0,0.75);
+}
+.menu-wrapper{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 1rem;
+}
+.menu-wrapper_icon{
+    line-height: 0.5rem;
+}
+.main-wrapper{
+    height: calc(100vh - 56px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.tools-block{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.fas{
+    margin-right: 35px;
+}
+.btn-group-vertical{
+    -webkit-box-shadow: 0px 7px 21px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 21px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 21px 3px rgba(0,0,0,0.75);
+}
+.btn{
+    height: 58px;
+}
+.btn-secondary{
+    display: flex;
+    align-items: center;
+}
+.tools-block .btn-group-vertical .btn-secondary:nth-child(2){
+    border-bottom: #0000001f 2px solid;
+}
+.color-type{
+    height: 18px;
+    width: 18px;
+    border: #000 1px solid;
+    border-radius: 50%;
+    color: transparent;
+    display: inline-block;
+    margin-right: 18px;
+}
+.current-color{
+    background: #C4C4C4;
+}
+.prev-color{
+    background: #41F795;
+}
+.first-color{
+    background: #F74141;
+}
+.second-color{
+    background: #41B6F7;
+}
+.canvas{
+    background: #C4C4C4;
+
+}
+@media (max-width: 992px) {
+    .menu-wrapper{
+        position: inherit;
+    }
+}

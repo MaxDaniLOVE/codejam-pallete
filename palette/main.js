@@ -34,6 +34,9 @@ class Canvas {
                 if (this.transformActive) {
                     block.classList.toggle('block-rounded')
                 }
+                if (this.moveActive) {
+                    console.log(this.moveActive);
+                }
                 if (this.chooseColorActive) {
                     this.prevColor = this.activeColor
                     this.prevSpan.style.backgroundColor = this.prevColor
@@ -41,30 +44,49 @@ class Canvas {
                     this.activeColor = window.getComputedStyle(block).backgroundColor;
                     this.activeSpan.style.backgroundColor = this.activeColor
                 }
-                
             })
         });
     }
     setTool(){
         this.bucketBtn.addEventListener('click', () => {
+            this.bucketBtn.classList.toggle('active-tool')
+            this.chooseColorBtn.classList.remove('active-tool')
+            this.moveBtn.classList.remove('active-tool')
+            this.transformBtn.classList.remove('active-tool')
+
             this.bucketActive = true;
             this.chooseColorActive = false;
             this.moveActive = false;
             this.transformActive = false;
         })
         this.chooseColorBtn.addEventListener('click', () => {
+            this.bucketBtn.classList.remove('active-tool')
+            this.chooseColorBtn.classList.toggle('active-tool')
+            this.moveBtn.classList.remove('active-tool')
+            this.transformBtn.classList.remove('active-tool')
+
             this.bucketActive = false;
             this.chooseColorActive = true;
             this.moveActive = false;
             this.transformActive = false;
         })
         this.moveBtn.addEventListener('click', () => {
+            this.bucketBtn.classList.remove('active-tool')
+            this.chooseColorBtn.classList.remove('active-tool')
+            this.moveBtn.classList.toggle('active-tool')
+            this.transformBtn.classList.remove('active-tool')
+
             this.bucketActive = false;
             this.chooseColorActive = false;
             this.moveActive = true;
             this.transformActive = false;
         })
         this.transformBtn.addEventListener('click', () => {
+            this.bucketBtn.classList.remove('active-tool')
+            this.chooseColorBtn.classList.remove('active-tool')
+            this.moveBtn.classList.remove('active-tool')
+            this.transformBtn.classList.toggle('active-tool')
+
             this.bucketActive = false;
             this.chooseColorActive = false;
             this.moveActive = false;

@@ -79,9 +79,11 @@
     width: 30%;
     background: #000;
     display: inline-block;
+    transition: border-radius 0.5s ease-out;
 }
 .block-rounded{
     border-radius: 50%;
+    transition: border-radius 0.5s ease-out;
 }
 @media (max-width: 992px) {
     .menu-wrapper{

@@ -66,19 +66,22 @@
 .canvas{
     display: flex;
     flex-wrap: wrap;
-    height: 50vw;
-    width: 50vw;
+    height: 640px;
+    width: 640px;
     background: #f7f7f7;
     align-items: center;
     justify-content: center;
-
+    position: relative;
+}
+.block-wrapper{
+    height: 200px;
+    width: 200px;
+    display: inline-block;
 }
 .block{
-    margin: 1%;
-    height: 30%;
-    width: 30%;
+    height: 190px;
+    width: 190px;
     background: #000;
-    display: inline-block;
     transition: border-radius 0.5s ease-out;
 }
 .block-rounded{

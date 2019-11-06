@@ -27,7 +27,7 @@ class Canvas {
         canvas.setTool()
         let blocks = document.querySelectorAll('.block');
         blocks.forEach(block => {
-            block.addEventListener('click', () => {
+            block.addEventListener('mousedown', () => {
                 if (this.bucketActive) {
                     block.style.background = `${this.activeColor}`
                 }
@@ -35,7 +35,7 @@ class Canvas {
                     block.classList.toggle('block-rounded')
                 }
                 if (this.moveActive) {
-                    console.log(this.moveActive);
+                    this.dragAction(block)
                 }
                 if (this.chooseColorActive) {
                     this.prevColor = this.activeColor
@@ -44,7 +44,7 @@ class Canvas {
                     this.activeColor = window.getComputedStyle(block).backgroundColor;
                     this.activeSpan.style.backgroundColor = this.activeColor
                 }
-            })
+            }) 
         });
     }
     setTool(){
@@ -105,6 +105,40 @@ class Canvas {
             })
         });
         this.activeSpan.style.backgroundColor = `${this.activeColor}` 
+    }
+    dragAction(dragBlock){
+        // ! --------------------- 
+        // (1) отследить нажатие
+
+        // (2) подготовить к перемещению:
+        // разместить поверх остального содержимого и в абсолютных координатах
+        dragBlock.style.position = 'absolute';
+        dragBlock.style.zIndex = 1000;
+        // переместим в body, чтобы мяч был точно не внутри position:relative
+        document.body.append(dragBlock);
+        // и установим абсолютно спозиционированный мяч под курсор
+
+        moveAt(event.pageX, event.pageY);
+
+        // передвинуть мяч под координаты курсора
+        // и сдвинуть на половину ширины/высоты для центрирования
+        function moveAt(pageX, pageY) {
+            dragBlock.style.left = pageX - dragBlock.offsetWidth / 2 + 'px';
+            dragBlock.style.top = pageY - dragBlock.offsetHeight / 2 + 'px';
+        }
+
+        function onMouseMove(event) {
+            moveAt(event.pageX, event.pageY);
+        }
+
+        // (3) перемещать по экрану
+        document.addEventListener('mousemove', onMouseMove);
+
+        // (4) положить мяч, удалить более ненужные обработчики событий
+        dragBlock.onmouseup = function () {
+            document.removeEventListener('mousemove', onMouseMove);
+            dragBlock.onmouseup = null;
+        };
     }
 }
 
